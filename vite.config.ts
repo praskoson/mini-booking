@@ -21,14 +21,14 @@ export default defineConfig({
         type: "module",
       },
       manifest: {
-        theme_color: "#f69435",
+        theme_color: "#3DB3B1",
         background_color: "#292524",
         display: "standalone",
         scope: "/",
         start_url: "/",
-        short_name: "Booking",
+        short_name: "MiniBooking",
         description: "Mini booking app",
-        name: "MiniBooking",
+        name: "Mini Booking",
         icons: [
           {
             src: "pwa-64x64.png",
