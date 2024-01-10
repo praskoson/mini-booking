@@ -14,6 +14,7 @@ import {
   parse,
   startOfMonth,
   startOfWeek,
+  subDays,
   subMonths,
 } from "date-fns";
 import { hr } from "date-fns/locale";
@@ -53,8 +54,10 @@ export function Calendar({ bookings }: { bookings: Booking[] }) {
     end: endOfWeek(endOfMonth(month)),
   });
 
-  const thisMonthBookings = bookings.filter((b) =>
-    isWithinInterval(b.from, { start: days[0], end: days[days.length - 1] })
+  const thisMonthBookings = bookings.filter(
+    (b) =>
+      isWithinInterval(b.from, { start: subDays(days[0], 1), end: days[days.length - 1] }) ||
+      isWithinInterval(b.to, { start: subDays(days[0], 1), end: days[days.length - 1] })
   );
 
   let daysWithIntervals = days.map((day) => {
