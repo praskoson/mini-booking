@@ -32,7 +32,6 @@ export function Booking() {
   return (
     <div>
       <dl className="flex flex-col gap-6">
-        {/* <Calendar /> */}
         <SmallCalendar from={booking.from} to={booking.to} id={booking.id} />
         <div className="flex justify-between gap-3">
           <dd className="font-semibold">Trajanje</dd>
@@ -45,14 +44,18 @@ export function Booking() {
           <dd className="font-semibold">Ime</dd>
           <dt className="text-stone-300">{booking?.name}</dt>
         </div>
-        <div className="flex justify-between gap-6">
-          <dd className="font-semibold">Kontakt</dd>
-          <dt className="text-stone-300">{booking?.contact}</dt>
-        </div>
-        <div className="flex justify-between gap-6">
-          <dd className="font-semibold">Napomene</dd>
-          <dt className="text-stone-300 text-right">{booking?.notes}</dt>
-        </div>
+        {booking.contact && (
+          <div className="flex justify-between gap-6">
+            <dd className="font-semibold">Kontakt</dd>
+            <dt className="text-stone-300">{booking?.contact}</dt>
+          </div>
+        )}
+        {booking.notes && (
+          <div className="flex justify-between gap-6">
+            <dd className="font-semibold">Napomene</dd>
+            <dt className="text-stone-300 text-right">{booking?.notes}</dt>
+          </div>
+        )}
       </dl>
       <div className="py-8 space-y-4">
         <Button
