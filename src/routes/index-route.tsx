@@ -76,10 +76,10 @@ function IndexComponent() {
               }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={{ right: 0.1, left: 0.5 }}
+              dragElastic={{ right: 0.1, left: 0.7 }}
               onDragEnd={(_e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
-                if (swipe < -swipeConfidenceThreshold && offset.x < -150) {
+                if (swipe < -swipeConfidenceThreshold && offset.x < -100) {
                   navigate({ search: { view: "list" } });
                 }
               }}
@@ -102,10 +102,10 @@ function IndexComponent() {
               }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={{ right: 0.5, left: 0.1 }}
+              dragElastic={{ right: 0.7, left: 0.1 }}
               onDragEnd={(_e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
-                if (swipe > swipeConfidenceThreshold && offset.x > 150) {
+                if (swipe > swipeConfidenceThreshold && offset.x > 100) {
                   navigate({ search: { view: "calendar" } });
                 }
               }}
