@@ -54,6 +54,7 @@ const swipePower = (offset: number, velocity: number) => {
 
 function IndexComponent() {
   const [open, setOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const bookings = indexRoute.useLoaderData();
   const { view } = indexRoute.useSearch();
   const navigate = useNavigate({ from: indexRoute.path });
@@ -61,10 +62,15 @@ function IndexComponent() {
   return (
     <>
       <div className="flex-1 min-h-0">
-        <AnimatePresence initial={false} mode="popLayout">
+        <AnimatePresence
+          initial={false}
+          mode="popLayout"
+          onExitComplete={() => setIsAnimating(false)}
+        >
           {view === "calendar" && (
             <motion.div
               key="calendar"
+              style={{ height: "100%" }}
               custom={-1}
               variants={variants}
               initial="enter"
@@ -74,12 +80,14 @@ function IndexComponent() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
-              drag="x"
+              drag={isAnimating ? false : "x"}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={{ right: 0.1, left: 0.7 }}
               onDragEnd={(_e, { offset, velocity }) => {
+                if (isAnimating) return;
                 const swipe = swipePower(offset.x, velocity.x);
                 if (swipe < -swipeConfidenceThreshold && offset.x < -100) {
+                  setIsAnimating(true);
                   navigate({ search: { view: "list" } });
                 }
               }}
@@ -90,7 +98,7 @@ function IndexComponent() {
           {view === "list" && (
             <motion.div
               key="list"
-              className="max-h-full overflow-y-auto"
+              style={{ height: "100%", overflowY: "auto" }}
               custom={1}
               variants={variants}
               initial="enter"
@@ -100,12 +108,14 @@ function IndexComponent() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
-              drag="x"
+              drag={isAnimating ? false : "x"}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={{ right: 0.7, left: 0.1 }}
               onDragEnd={(_e, { offset, velocity }) => {
+                if (isAnimating) return;
                 const swipe = swipePower(offset.x, velocity.x);
                 if (swipe > swipeConfidenceThreshold && offset.x > 100) {
+                  setIsAnimating(true);
                   navigate({ search: { view: "calendar" } });
                 }
               }}
