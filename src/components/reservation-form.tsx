@@ -83,13 +83,13 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
             />
           </div>
         </div>
-        <DrawerFooter className="mt-8 items-center">
-          <Button variant="primary" className="text-sm w-3/4">
+        <DrawerFooter className="mt-4 items-center">
+          <Button variant="primary" className="text-sm w-full max-w-lg">
             Dodaj
           </Button>
           <DrawerClose
             type="button"
-            className="text-sm w-3/4 ring-1 rounded-xl ring-ring py-3 px-6"
+            className="text-sm ring-1 rounded-xl ring-ring py-3 px-6 w-full max-w-lg"
           >
             Poništi
           </DrawerClose>
