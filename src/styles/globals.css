@@ -35,12 +35,12 @@
   }
   body {
     overscroll-behavior-block: none;
-    @apply bg-stone-800;
     @apply text-white;
   }
 
   #root {
     height: 100svh;
+    @apply bg-stone-800;
   }
 }
 
