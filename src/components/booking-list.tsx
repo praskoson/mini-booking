@@ -36,7 +36,7 @@ export function BookingList({ bookings }: { bookings: Booking[] }) {
           Prikaži starije rezervacije
         </label>
       </div>
-      <ol className="flex flex-col gap-4 *:w-full">
+      <ol className="flex flex-col gap-4 *:w-full px-1.5">
         {filteredBookings
           .sort((a, b) => compareAsc(a.from, b.from))
           .map((booking) => {
