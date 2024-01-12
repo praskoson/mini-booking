@@ -6,7 +6,7 @@ import { router } from "@/router";
 import { cn } from "@/lib/utils";
 
 const inputClasses =
-  "flex h-9 w-full rounded-md border border-stone-700 bg-transparent px-3 py-1 text-base shadow-sm transition-colors";
+  "flex h-9 w-full rounded-md border border-stone-600 bg-transparent px-3 py-1 text-base shadow-sm transition-colors";
 
 export function ReservationForm({ onClose }: { onClose: () => void }) {
   const [from, setFrom] = useState("");
@@ -86,7 +86,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
               onChange={(e) => setNotes(e.target.value)}
               rows={4}
               id="notes"
-              className="w-full rounded-md border border-stone-700 bg-transparent px-3 py-2"
+              className="w-full rounded-md border border-stone-600 bg-transparent px-3 py-2"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
           </Button>
           <DrawerClose
             type="button"
-            className="text-sm ring-1 rounded-xl ring-stone-700 py-3 px-6 w-full max-w-lg"
+            className="text-sm ring-1 rounded-xl ring-stone-600 py-3 px-6 w-full max-w-lg"
           >
             Poništi
           </DrawerClose>
