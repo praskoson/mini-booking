@@ -12,7 +12,8 @@ export function Header() {
           className="size-9 mr-2.5 bg-gradient-to-br from-sky-500 to-lime-500"
         />
         <h1 className="hidden min-[300px]:block font-bold text-3xl tracking-tighter text-white text-nowrap">
-          MINI BOOKING
+          <span className="hidden min-[400px]">MINI </span>
+          <span>BOOKING</span>
         </h1>
       </Link>
       {!pathname.startsWith("/booking") && (
