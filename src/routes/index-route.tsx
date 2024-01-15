@@ -41,12 +41,6 @@ const variants = {
   },
 };
 
-/**
- * Experimenting with distilling swipe offset and velocity into a single variable, so the
- * less distance a user has swiped, the more velocity they need to register as a swipe.
- * Should accomodate longer swipes and short flicks without having binary checks on
- * just distance thresholds and velocity > 0.
- */
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
@@ -61,7 +55,7 @@ function IndexComponent() {
 
   return (
     <>
-      <div className="flex-1 min-h-0">
+      <div className="min-h-0 flex-1">
         <AnimatePresence
           initial={false}
           mode="popLayout"
@@ -131,9 +125,9 @@ function IndexComponent() {
           <DrawerTrigger asChild>
             <Button
               variant="primary"
-              className="font-semibold tracking-tighter grid grid-cols-[20px_1fr_20px] px-4 w-full py-0"
+              className="grid w-full grid-cols-[20px_1fr_20px] px-4 py-0 font-semibold tracking-tighter"
             >
-              <BedIcon aria-hidden="true" className="inline-block mr-1.5 size-6" />
+              <BedIcon aria-hidden="true" className="mr-1.5 inline-block size-6" />
               <span className="py-3">Nova rezervacija</span>
             </Button>
           </DrawerTrigger>
@@ -149,9 +143,9 @@ function IndexComponent() {
             }
           }}
           variant="danger"
-          className="font-semibold tracking-tighter grid grid-cols-[20px_1fr_20px] px-4 w-full py-0"
+          className="grid w-full grid-cols-[20px_1fr_20px] px-4 py-0 font-semibold tracking-tighter"
         >
-          <Trash className="inline-block mr-1.5 size-5" />
+          <Trash className="mr-1.5 inline-block size-5" />
           <span className="py-3">Resetiraj sve rezervacije</span>
         </Button>
       </div>

@@ -56,8 +56,14 @@ export function Calendar({ bookings }: { bookings: Booking[] }) {
 
   const thisMonthBookings = bookings.filter(
     (b) =>
-      isWithinInterval(b.from, { start: subDays(days[0], 1), end: days[days.length - 1] }) ||
-      isWithinInterval(b.to, { start: subDays(days[0], 1), end: days[days.length - 1] })
+      isWithinInterval(b.from, {
+        start: subDays(days[0], 1),
+        end: days[days.length - 1],
+      }) ||
+      isWithinInterval(b.to, {
+        start: subDays(days[0], 1),
+        end: days[days.length - 1],
+      }),
   );
 
   let daysWithIntervals = days.map((day) => {
@@ -95,7 +101,7 @@ export function Calendar({ bookings }: { bookings: Booking[] }) {
                     <motion.p
                       variants={variants}
                       custom={direction}
-                      className="absolute capitalize inset-0 flex items-center justify-center font-semibold"
+                      className="absolute inset-0 flex items-center justify-center font-semibold capitalize"
                     >
                       {format(month, "LLLL yyyy", { locale: hr })}
                     </motion.p>
@@ -187,7 +193,7 @@ function ColorMarker({ intervals }: { intervals: number[] }) {
   return (
     <div
       style={{ background: `linear-gradient(to bottom, ${gradientStops})` }}
-      className="absolute -z-10 inset-0"
+      className="absolute inset-0 -z-10"
     />
   );
 }

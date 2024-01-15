@@ -6,6 +6,7 @@ import { bookingRoute } from "./routes/booking";
 export const rootRoute = new RootRoute();
 
 const routeTree = rootRoute.addChildren([rootLayout.addChildren([indexRoute, bookingRoute])]);
+
 export const router = new Router({ routeTree });
 
 declare module "@tanstack/react-router" {

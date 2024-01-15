@@ -12,7 +12,7 @@ export const rootLayout = new Route({
 
 export function RootComponent() {
   return (
-    <div className="px-[4%] min-[425px]:px-8 w-[min(100%,512px)] mx-auto flex flex-col gap-y-6 h-full pt-8 pb-10">
+    <div className="mx-auto flex h-full w-[min(100%,512px)] flex-col gap-y-6 px-[4%] pb-10 pt-8 min-[425px]:px-8">
       <Header />
       <Outlet />
     </div>

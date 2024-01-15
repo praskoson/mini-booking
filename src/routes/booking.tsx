@@ -53,11 +53,11 @@ export function Booking() {
         {booking.notes && (
           <div className="flex justify-between gap-6">
             <dd className="font-semibold">Napomene</dd>
-            <dt className="text-stone-300 text-right">{booking?.notes}</dt>
+            <dt className="text-right text-stone-300">{booking?.notes}</dt>
           </div>
         )}
       </dl>
-      <div className="py-8 space-y-4">
+      <div className="space-y-4 py-8">
         <Button
           onClick={async () => {
             if (confirm("Sigurno?")) {
@@ -67,15 +67,15 @@ export function Booking() {
             }
           }}
           variant="danger"
-          className="font-semibold tracking-tighter grid grid-cols-[20px_1fr_20px] px-4 w-full py-0"
+          className="grid w-full grid-cols-[20px_1fr_20px] px-4 py-0 font-semibold tracking-tighter"
         >
-          <Trash className="inline-block mr-1.5 size-5" />
+          <Trash className="mr-1.5 inline-block size-5" />
           <span className="py-3">Obriši rezervaciju</span>
         </Button>
         <Link
           to="/"
           search={true}
-          className="border border-stone-100 rounded-xl text-center h-[44px] items-center justify-center tracking-tighter grid grid-cols-[20px_1fr_20px] px-4 py-0 w-full"
+          className="grid h-[44px] w-full grid-cols-[20px_1fr_20px] items-center justify-center rounded-xl border border-stone-100 px-4 py-0 text-center tracking-tighter"
         >
           <ChevronLeft className="size-5" />
           Natrag

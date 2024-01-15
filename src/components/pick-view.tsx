@@ -13,8 +13,8 @@ export function PickView() {
           view: "calendar",
         }}
         className={cn(
-          "size-9 rounded inline-flex justify-center items-center",
-          view === "calendar" ? "text-gray-50 bg-stone-600" : "text-gray-200 bg-transparent"
+          "inline-flex size-9 items-center justify-center rounded",
+          view === "calendar" ? "bg-stone-600 text-gray-50" : "bg-transparent text-gray-200",
         )}
       >
         <CalendarIcon className="size-5" />
@@ -24,8 +24,8 @@ export function PickView() {
           view: "list",
         }}
         className={cn(
-          "size-9 rounded inline-flex justify-center items-center",
-          view === "list" ? "text-gray-50 bg-stone-600" : "text-gray-200 bg-transparent"
+          "inline-flex size-9 items-center justify-center rounded",
+          view === "list" ? "bg-stone-600 text-gray-50" : "bg-transparent text-gray-200",
         )}
       >
         <ListIcon className="size-5" />

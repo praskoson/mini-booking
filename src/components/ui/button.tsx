@@ -19,8 +19,8 @@ const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
       ref={ref}
       className={cn(
         variants[variant],
-        "inline-flex items-center justify-center text-sm text-white rounded-xl py-3 px-6 cursor-default",
-        className
+        "inline-flex cursor-default items-center justify-center rounded-xl px-6 py-3 text-sm text-white",
+        className,
       )}
       {...rest}
     />

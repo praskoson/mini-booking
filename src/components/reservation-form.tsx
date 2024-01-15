@@ -18,7 +18,13 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
   const handleAddTodo = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await addBooking({ from: new Date(from), to: new Date(to), name, contact, notes });
+      await addBooking({
+        from: new Date(from),
+        to: new Date(to),
+        name,
+        contact,
+        notes,
+      });
       router.invalidate();
       onClose();
     } catch (err) {
@@ -35,7 +41,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
         <div className="flex flex-col gap-y-4 px-8">
           {/* {format} */}
           <div className="grid grid-cols-[72px_1fr] gap-4">
-            <label htmlFor="from" className="font-medium text-sm self-center">
+            <label htmlFor="from" className="self-center text-sm font-medium">
               Od
             </label>
             <input
@@ -46,7 +52,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
               id="from"
               required
             />
-            <label htmlFor="to" className="font-medium text-sm self-center">
+            <label htmlFor="to" className="self-center text-sm font-medium">
               Do
             </label>
             <input
@@ -57,7 +63,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
               id="to"
               required
             />
-            <label htmlFor="name" className="font-medium text-sm self-center">
+            <label htmlFor="name" className="self-center text-sm font-medium">
               Ime
             </label>
             <input
@@ -68,7 +74,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
               id="name"
               required
             />
-            <label htmlFor="contact" className="font-medium text-sm self-center">
+            <label htmlFor="contact" className="self-center text-sm font-medium">
               Kontakt
             </label>
             <input
@@ -78,7 +84,7 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
               type="text"
               id="contact"
             />
-            <label htmlFor="notes" className="font-medium text-sm self-start mt-2">
+            <label htmlFor="notes" className="mt-2 self-start text-sm font-medium">
               Napomene
             </label>
             <textarea
@@ -91,12 +97,12 @@ export function ReservationForm({ onClose }: { onClose: () => void }) {
           </div>
         </div>
         <DrawerFooter className="mt-4 items-center">
-          <Button variant="primary" className="text-sm w-full max-w-lg">
+          <Button variant="primary" className="w-full max-w-lg text-sm">
             Dodaj
           </Button>
           <DrawerClose
             type="button"
-            className="text-sm ring-1 rounded-xl ring-stone-600 py-3 px-6 w-full max-w-lg"
+            className="w-full max-w-lg rounded-xl px-6 py-3 text-sm ring-1 ring-stone-600"
           >
             Poništi
           </DrawerClose>

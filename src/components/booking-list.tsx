@@ -15,7 +15,7 @@ import { ChevronRightCircle } from "lucide-react";
 export function BookingList({ bookings }: { bookings: Booking[] }) {
   const [showOldBookings, setShowOldBookings] = useLocalStorageState("showOldBookings", false);
   if (bookings.length === 0) {
-    return <p className="mt-10 text-white align-middle text-center text-lg">Nema rezervacija</p>;
+    return <p className="mt-10 text-center align-middle text-lg text-white">Nema rezervacija</p>;
   }
 
   const filteredBookings = showOldBookings
@@ -36,7 +36,7 @@ export function BookingList({ bookings }: { bookings: Booking[] }) {
           Prikaži starije rezervacije
         </label>
       </div>
-      <ol className="flex flex-col gap-4 *:w-full px-1.5">
+      <ol className="flex flex-col gap-4 px-1.5 *:w-full">
         {filteredBookings
           .sort((a, b) => compareAsc(a.from, b.from))
           .map((booking) => {
@@ -46,18 +46,18 @@ export function BookingList({ bookings }: { bookings: Booking[] }) {
             return (
               <li
                 key={booking.id}
-                className="relative bg-stone-700 text-white shadow-md rounded ring-1 overflow-hidden ring-black/5 focus-within:ring-2 focus-within:ring-white"
+                className="relative overflow-hidden rounded bg-stone-700 text-white shadow-md ring-1 ring-black/5 focus-within:ring-2 focus-within:ring-white"
               >
                 {isActive && (
-                  <div aria-hidden="true" className="bg-green-600 absolute left-0 h-full w-[4px]" />
+                  <div aria-hidden="true" className="absolute left-0 h-full w-[4px] bg-green-600" />
                 )}
                 <Link to="/booking/$slug" search={true} params={{ slug: booking.id.toString() }}>
-                  <div className="w-full px-6 py-4 grid grid-cols-5 gap-2">
+                  <div className="grid w-full grid-cols-5 gap-2 px-6 py-4">
                     <div className="col-span-2">
-                      <span className="block font-semibold truncate mb-1">{booking.name}</span>
-                      <span className="block text-stone-400 text-sm">{dayDuration} dana</span>
+                      <span className="mb-1 block truncate font-semibold">{booking.name}</span>
+                      <span className="block text-sm text-stone-400">{dayDuration} dana</span>
                     </div>
-                    <div className="col-span-2 flex gap-2 items-center text-sm min-[425px]:text-base">
+                    <div className="col-span-2 flex items-center gap-2 text-sm min-[425px]:text-base">
                       <span className="block capitalize">
                         {format(booking.from, "ccc, dd.M.yy", { locale: hr })}
                       </span>
